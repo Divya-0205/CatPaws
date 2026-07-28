@@ -1,0 +1,78 @@
+.cp-tail {
+  transform-origin: 250px 250px;
+  animation: cp-tail-sway 3.2s ease-in-out infinite;
+}
+.cp-paw {
+  transform-origin: 235px 205px;
+  animation: cp-paw-wave 1.8s ease-in-out infinite;
+}
+.cp-eyes {
+  transform-origin: 160px 150px;
+  animation: cp-blink 4.5s ease-in-out infinite;
+}
+.cp-eyes-reading {
+  transform-origin: 160px 150px;
+  animation: cp-blink-slow 6s ease-in-out infinite;
+}
+.cp-magnifier {
+  transform-origin: 200px 130px;
+  animation: cp-magnifier-scan 2.4s ease-in-out infinite;
+}
+
+@keyframes cp-tail-sway {
+  0%,
+  100% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes cp-paw-wave {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-18deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+  75% {
+    transform: rotate(-12deg);
+  }
+}
+
+@keyframes cp-blink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.1);
+  }
+}
+
+@keyframes cp-blink-slow {
+  0%,
+  95%,
+  100% {
+    transform: scaleY(1);
+  }
+  97% {
+    transform: scaleY(0.1);
+  }
+}
+
+@keyframes cp-magnifier-scan {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-8px, 6px) rotate(-6deg);
+  }
+}

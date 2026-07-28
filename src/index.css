@@ -1,0 +1,268 @@
+:root{
+  --primary:#B58AF3;
+  --primary-dark:#9E71E7;
+  --primary-light:#F3EAFF;
+
+  --text:#4F4268;
+  --text-light:#7D7292;
+
+  --bg:#FFF9FD;
+  --surface:#FFFFFF;
+
+  --border:#E8DDF5;
+
+  --success:#49C48A;
+  --error:#E35D7C;
+  --warning:#FFB84D;
+
+  --shadow:0 12px 35px rgba(95,72,145,.12);
+
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color-scheme:light;
+
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+
+*,
+*::before,
+*::after{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+html,
+body,
+#root{
+  width:100%;
+  min-height:100vh;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* Remove Vite defaults */
+
+#root{
+  width:100%;
+  min-height:100vh;
+}
+
+/* Typography */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  color:var(--text);
+  font-weight:700;
+  line-height:1.2;
+}
+
+h1{
+  font-size:2.7rem;
+}
+
+h2{
+  font-size:2rem;
+}
+
+h3{
+  font-size:1.5rem;
+}
+
+p{
+  color:var(--text-light);
+  line-height:1.7;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+button{
+  font-family:inherit;
+  cursor:pointer;
+  border:none;
+}
+
+input,
+textarea,
+select{
+  font:inherit;
+  color:var(--text);
+  background:#fff;
+
+  border:1px solid var(--border);
+
+  border-radius:14px;
+
+  outline:none;
+
+  transition:.25s;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  border-color:var(--primary);
+
+  box-shadow:
+      0 0 0 4px rgba(181,138,243,.18);
+}
+
+input::placeholder,
+textarea::placeholder{
+  color:#A69AB9;
+}
+
+textarea{
+  resize:vertical;
+}
+
+ul{
+  list-style:none;
+}
+
+table{
+  border-collapse:collapse;
+}
+
+code,
+pre{
+  font-family:
+    "JetBrains Mono",
+    "Fira Code",
+    monospace;
+}
+
+::-webkit-scrollbar{
+  width:9px;
+}
+
+::-webkit-scrollbar-track{
+  background:#F6F0FD;
+}
+
+::-webkit-scrollbar-thumb{
+  background:#D7BDF8;
+  border-radius:999px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background:#BE99F2;
+}
+
+/* Utility */
+
+.container{
+  width:min(1200px,92%);
+  margin-inline:auto;
+}
+
+.card{
+  background:#fff;
+  border-radius:22px;
+  box-shadow:var(--shadow);
+}
+
+.hidden{
+  display:none!important;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width:1200px){
+
+  h1{
+    font-size:2.4rem;
+  }
+
+}
+
+@media (max-width:992px){
+
+  .container{
+    width:94%;
+  }
+
+  h1{
+    font-size:2.1rem;
+  }
+
+  h2{
+    font-size:1.8rem;
+  }
+
+}
+
+@media (max-width:768px){
+
+  body{
+    font-size:15px;
+  }
+
+  h1{
+    font-size:1.9rem;
+  }
+
+  h2{
+    font-size:1.6rem;
+  }
+
+  h3{
+    font-size:1.3rem;
+  }
+
+}
+
+@media (max-width:576px){
+
+  body{
+    font-size:14px;
+  }
+
+  h1{
+    font-size:1.6rem;
+  }
+
+  h2{
+    font-size:1.4rem;
+  }
+
+  input,
+  textarea,
+  select{
+    font-size:16px;
+  }
+
+}
+
+@media (prefers-reduced-motion:reduce){
+
+  *,
+  *::before,
+  *::after{
+    animation:none!important;
+    transition:none!important;
+    scroll-behavior:auto!important;
+  }
+
+}

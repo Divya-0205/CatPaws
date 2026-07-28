@@ -1,0 +1,152 @@
+.cp-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(36, 24, 44, 0.55);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 1000;
+}
+
+.cp-modal {
+  width: min(900px, 95vw);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--cream, #e6b1df);
+  border: 2px solid var(--blush-pale);
+  box-shadow: 0 20px 60px rgba(70, 45, 90, 0.25);
+  animation: modalPop 0.25s ease;
+  color: #2b2435;
+}
+
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.cp-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--blush-pale);
+  background: linear-gradient(
+    90deg,
+    var(--lavender-light),
+    var(--cream)
+  );
+}
+
+.cp-modal-title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--plum);
+  font-weight: 700;
+}
+
+.cp-modal-close {
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  background: var(--blush-pale);
+  color: var(--plum);
+  transition: all 0.2s ease;
+}
+
+.cp-modal-close:hover {
+  background: var(--blush-deep);
+  color: white;
+  transform: rotate(90deg);
+}
+
+.cp-modal-code {
+  flex: 1;
+  margin: 0;
+  padding: 1.5rem;
+  overflow: auto;
+
+  background: #2b2435;
+  color: #f7f2ff;
+
+  font-family: "Fira Code", "JetBrains Mono", monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+
+  white-space: pre;
+  tab-size: 2;
+}
+
+.cp-modal-code code {
+  display: block;
+}
+
+.cp-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+  padding: 1.2rem 1.5rem;
+  border-top: 1px solid var(--blush-pale);
+  background: var(--cream);
+}
+
+.cp-modal-actions .btn {
+  min-width: 200px;
+  max-height: 100px;
+  background-color: linear-gradient(135deg, #af259c, #27cb27);
+  border: #e6b1df;
+  border-radius: 40px;
+  size:40px;
+}
+
+.cp-modal-code::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.cp-modal-code::-webkit-scrollbar-track {
+  background: #3d314b;
+}
+
+.cp-modal-code::-webkit-scrollbar-thumb {
+  background: #8b6cb5;
+  border-radius: 999px;
+}
+
+.cp-modal-code::-webkit-scrollbar-thumb:hover {
+  background: #b18ce6;
+}
+
+@media (max-width: 768px) {
+  .cp-modal {
+    width: 100%;
+    max-height: 95vh;
+    border-radius: 18px;
+  }
+
+  .cp-modal-title {
+    font-size: 1rem;
+  }
+
+  .cp-modal-actions {
+    flex-direction: column;
+  }
+
+  .cp-modal-actions .btn {
+    width: 100%;
+  }
+}
