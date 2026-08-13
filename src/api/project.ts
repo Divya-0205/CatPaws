@@ -28,6 +28,10 @@ export interface Project {
   user: string;
   name: string;
   description?: string;
+  // Extra AI context, optional (see updateProject below)
+  projectGoal?: string;
+  techStack?: string;
+  additionalContext?: string;
   documents: ProjectDocument[];
   files: ProjectFile[];
   githubLinks: ProjectGithubLink[];
@@ -49,6 +53,26 @@ export function getProjectById(projectId: string): Promise<Project> {
 
 export function deleteProject(projectId: string): Promise<{ message: string }> {
   return apiFetch<{ message: string }>(`/projects/${projectId}`, { method: "DELETE" });
+}
+
+// Update any of a project's editable fields. Pass only what changed —
+// fields left out of the object are left alone on the server.
+export interface UpdateProjectPayload {
+  name?: string;
+  description?: string;
+  projectGoal?: string;
+  techStack?: string;
+  additionalContext?: string;
+}
+
+export function updateProject(
+  projectId: string,
+  payload: UpdateProjectPayload
+): Promise<{ message: string; project: Project }> {
+  return apiFetch<{ message: string; project: Project }>(`/projects/${projectId}`, {
+    method: "PUT",
+    body: payload,
+  });
 }
 
 export function addDocumentToProject(

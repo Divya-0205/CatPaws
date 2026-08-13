@@ -27,6 +27,12 @@ export interface IProject extends Document {
   user: Types.ObjectId;
   name: string;
   description?: string;
+  // Extra context about the project that gets sent to the AI along with the
+  // code, so reviews can be more relevant. All optional — old projects that
+  // don't have these yet keep working exactly as before.
+  projectGoal?: string;
+  techStack?: string;
+  additionalContext?: string;
   documents: IProjectDocument[];
   files: IProjectFile[];
   githubLinks: IProjectGithubLink[];
@@ -37,6 +43,9 @@ const projectSchema = new Schema<IProject>(
     user: { type: Schema.Types.ObjectId, ref: "User", required: true },
     name: { type: String, required: true, trim: true },
     description: { type: String },
+    projectGoal: { type: String },
+    techStack: { type: String },
+    additionalContext: { type: String },
     documents: [
       {
         fileName: { type: String, required: true },

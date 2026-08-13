@@ -1,0 +1,166 @@
+.cp-analysis {
+  max-width: 1200px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.cp-analysis-section {
+  padding: 1.5rem;
+}
+
+.cp-analysis-section-title {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.cp-analysis-project-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.cp-analysis-tech {
+  font-size: 0.9rem;
+  color: var(--primary-dark);
+  margin-top: 0.4rem;
+}
+
+.cp-analysis-note {
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+/* Stat boxes, reused across the overview / score / review-stats sections */
+.cp-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.cp-stat-box {
+  background: var(--primary-light);
+  border-radius: 14px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cp-stat-value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+}
+
+.cp-stat-positive {
+  color: var(--success);
+}
+
+.cp-stat-negative {
+  color: var(--error);
+}
+
+.cp-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: 0.3rem;
+}
+
+/* Simple horizontal bar rows, used for language + improvement breakdowns */
+.cp-bar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cp-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cp-bar-label {
+  width: 130px;
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.cp-bar-track {
+  flex: 1;
+  height: 10px;
+  background: var(--primary-light);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.cp-bar-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 999px;
+}
+
+.cp-bar-fill-alt {
+  background: var(--warning);
+}
+
+.cp-bar-count {
+  width: 28px;
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+/* Recent reviews list */
+.cp-recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.cp-recent-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  background: #fafafa;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.cp-recent-name {
+  flex: 1;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.cp-recent-score {
+  background: var(--primary);
+  color: white;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.cp-recent-date {
+  color: var(--text-light);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .cp-bar-label {
+    width: 100px;
+    font-size: 0.8rem;
+  }
+
+  .cp-recent-row {
+    flex-wrap: wrap;
+  }
+}

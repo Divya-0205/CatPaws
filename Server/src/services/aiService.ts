@@ -7,9 +7,21 @@ export interface AIReviewResult {
   correctedCode: string;
 }
 
+// Optional project info the user can fill in (see ProjectContextPanel on the
+// frontend). If none of these are set, the review prompt is built exactly
+// the same way it always was.
+export interface AIReviewContext {
+  projectGoal?: string;
+  techStack?: string;
+  additionalContext?: string;
+}
+
 const MAX_CODE_LENGTH = 8000;
 
-export const generateCodeReview = async (code: string): Promise<AIReviewResult> => {
+export const generateCodeReview = async (
+  code: string,
+  context?: AIReviewContext
+): Promise<AIReviewResult> => {
   if (code.length > MAX_CODE_LENGTH) {
     throw new Error(`Code exceeds maximum length of ${MAX_CODE_LENGTH} characters`);
   }
@@ -24,9 +36,21 @@ export const generateCodeReview = async (code: string): Promise<AIReviewResult> 
 
   const ai = new GoogleGenAI({ apiKey });
 
+  // Build a short "here's what this project is about" block only if the
+  // user actually filled in some context. If they didn't, this is an empty
+  // string and the prompt below reads exactly like it did before.
+  let contextBlock = "";
+  if (context && (context.projectGoal || context.techStack || context.additionalContext)) {
+    contextBlock += "Here is some context about this project:\n";
+    if (context.projectGoal) contextBlock += `- Goal: ${context.projectGoal}\n`;
+    if (context.techStack) contextBlock += `- Tech stack: ${context.techStack}\n`;
+    if (context.additionalContext) contextBlock += `- Notes: ${context.additionalContext}\n`;
+    contextBlock += "Keep this in mind while reviewing.\n\n";
+  }
+
   const prompt = `
 You are a senior software engineer reviewing a student's code.
-Analyze the following code and respond ONLY with valid JSON.
+${contextBlock}Analyze the following code and respond ONLY with valid JSON.
 Do not include markdown, backticks, or any extra text.
 
 Return exactly this JSON shape:
@@ -57,7 +81,7 @@ ${code}
         contents: prompt,
         config: {
           responseMimeType:"application/json",
-          maxOutputTokens: 4000, // raised further since correctedCode adds real length
+          maxOutputTokens: 5000, 
           temperature: 0.27,
           
         },

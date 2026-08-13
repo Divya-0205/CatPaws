@@ -1,0 +1,77 @@
+.cp-context-panel {
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.cp-context-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.cp-context-title {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.cp-context-summary p {
+  margin-bottom: 0.4rem;
+  line-height: 1.6;
+}
+
+.cp-context-summary strong {
+  color: var(--text);
+}
+
+.cp-context-empty {
+  font-size: 0.9rem;
+}
+
+.cp-context-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.cp-context-field input,
+.cp-context-field textarea {
+  padding: 0.6rem 0.8rem;
+  font-weight: 400;
+}
+
+.cp-context-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.cp-context-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.cp-context-btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.cp-context-btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.cp-context-btn-secondary {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+.cp-context-btn-secondary:hover {
+  background: var(--border);
+}

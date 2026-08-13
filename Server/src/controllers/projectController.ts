@@ -54,6 +54,33 @@ export const getProjectById = async (req: AuthRequest, res: Response) => {
   }
 };
 
+// Update a project's editable details: name, description, and AI context
+// (projectGoal, techStack, additionalContext). Only the fields sent in the
+// request body get changed — anything left out stays as it was.
+export const updateProject = async (req: AuthRequest, res: Response) => {
+  try {
+    const { projectId } = req.params;
+    const { name, description, projectGoal, techStack, additionalContext } = req.body;
+
+    const project = await Project.findOne({ _id: projectId, user: req.userId });
+    if (!project) {
+      return res.status(404).json({ message: "Project not found" });
+    }
+
+    if (name !== undefined) project.name = name;
+    if (description !== undefined) project.description = description;
+    if (projectGoal !== undefined) project.projectGoal = projectGoal;
+    if (techStack !== undefined) project.techStack = techStack;
+    if (additionalContext !== undefined) project.additionalContext = additionalContext;
+
+    await project.save();
+    return res.status(200).json({ message: "Project updated", project });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Failed to update project" });
+  }
+};
+
 // Add a pasted code snippet to a project (existing behavior, unchanged)
 export const addDocumentToProject = async (req: AuthRequest, res: Response) => {
   try {

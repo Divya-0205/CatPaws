@@ -3,6 +3,7 @@ import {
   createProject,
   getuserProjects,
   getProjectById,
+  updateProject,
   addDocumentToProject,
   deleteDocumentFromProject,
   uploadFileToProject,
@@ -18,6 +19,7 @@ const router = Router();
 router.post("/", protect, createProject);
 router.get("/user", protect, getuserProjects);
 router.get("/:projectId", protect, getProjectById);
+router.put("/:projectId", protect, updateProject);
 router.post("/:projectId/documents", protect, addDocumentToProject);
 router.delete("/:projectId/documents/:documentId", protect, deleteDocumentFromProject);
 router.post("/:projectId/upload", protect, upload.single("file"), uploadFileToProject);

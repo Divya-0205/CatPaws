@@ -49,8 +49,20 @@ export const createReview = async (req: AuthRequest, res: Response) => {
       sourceRef = githubUrl;
     }
 
+    // Fetch just the project's AI-context fields (if it has any). This is a
+    // small separate query so the existing storedFileName lookup above isn't
+    // touched. If the project has no context yet, generateCodeReview just
+    // falls back to its normal prompt.
+    const projectContext = await Project.findOne({ _id: projectId, user: userId }).select(
+      "projectGoal techStack additionalContext"
+    );
+
     console.log("Calling generateCodeReview");
-    const aiResult = await generateCodeReview(finalCode);
+    const aiResult = await generateCodeReview(finalCode, {
+      projectGoal: projectContext?.projectGoal,
+      techStack: projectContext?.techStack,
+      additionalContext: projectContext?.additionalContext,
+    });
     console.log("AI result score:", aiResult.score);
 
     const review = new Review({

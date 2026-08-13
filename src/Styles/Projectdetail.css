@@ -6,7 +6,6 @@ flex-direction:column;
 gap:2rem;
 padding:0 1rem;
 }
-
 .cp-files-section{
 background:#fff;
 border-radius:20px;
@@ -14,14 +13,12 @@ padding:1.5rem;
 box-shadow:0 8px 24px rgba(0,0,0,.08);
 border:1px solid #ececec;
 }
-
 .cp-files-section-title{
 margin:0 0 1.2rem;
 font-size:1.5rem;
 font-weight:700;
 color:#333;
 }
-
 .cp-files-list{
 list-style:none;
 padding:0;
@@ -30,7 +27,6 @@ display:flex;
 flex-direction:column;
 gap:1rem;
 }
-
 .cp-files-row{
 display:flex;
 align-items:center;
@@ -40,22 +36,18 @@ border:1px solid #eee;
 border-radius:15px;
 background:#fafafa;
 }
-
 .cp-files-icon{
 font-size:1.6rem;
 }
-
 .cp-files-name{
 flex:1;
 font-weight:600;
 word-break:break-word;
 }
-
 .cp-files-meta{
 color:#777;
 font-size:.9rem;
 }
-
 .cp-files-review-btn{
 padding:.7rem 1.2rem;
 border:none;
@@ -65,24 +57,20 @@ color:white;
 cursor:pointer;
 font-weight:600;
 }
-
 .cp-files-review-btn:hover{
 background:#7c3aed;
 }
-
 .cp-files-review-list{
 display:flex;
 flex-direction:column;
 gap:1rem;
 }
-
 .cp-review-card{
 background:white;
 border-radius:18px;
 padding:1rem;
 box-shadow:0 5px 18px rgba(0,0,0,.08);
 }
-
 .cp-review-card-header{
 width:100%;
 display:flex;
@@ -94,18 +82,15 @@ border:none;
 cursor:pointer;
 font:inherit;
 }
-
 .cp-review-source{
 font-weight:600;
 color:#666;
 }
-
 .cp-review-filename{
 flex:1;
 text-align:left;
 font-weight:700;
 }
-
 .cp-review-score{
 background:#8b5cf6;
 color:white;
@@ -113,98 +98,77 @@ padding:.4rem .8rem;
 border-radius:999px;
 font-weight:700;
 }
-
 .cp-review-card-body{
 margin-top:1rem;
 padding-top:1rem;
 border-top:1px solid #eee;
 }
-
 .cp-review-feedback{
 margin-bottom:1rem;
 line-height:1.6;
 }
-
 .cp-review-improvements{
 padding-left:1.2rem;
 display:flex;
 flex-direction:column;
 gap:.5rem;
 }
-
 .cp-muted{
 text-align:center;
 color:#888;
 padding:1rem;
 }
-
 .error-text{
 background:#fee2e2;
 color:#b91c1c;
 padding:1rem;
 border-radius:10px;
 }
-
 @media(max-width:768px){
-
 .cp-files-row{
 flex-wrap:wrap;
 }
-
 .cp-files-review-btn{
 width:100%;
 }
-
 .cp-review-card-header{
 flex-direction:column;
 align-items:flex-start;
 }
-
 }
-
 .cp-back-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-
   padding: 0.65rem 1.2rem;
-
   background: rgba(255, 255, 255, 0.9);
   border: 2px solid #e8d5ff;
   border-radius: 999px;
-
   color: #6a4c93;
   font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-
   box-shadow: 0 8px 20px rgba(180, 140, 255, 0.18);
   transition: all 0.25s ease;
 }
-
 
 .cp-pd-back {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-
   padding: 0.7rem 1.3rem;
   margin-bottom: 1.5rem;
-
   background: #fff;
   border: 2px solid #e9d5ff;
   border-radius: 999px;
-
   color: #7c4dff;
   font-size: 0.95rem;
   font-weight: 600;
-
   cursor: pointer;
   transition: all 0.25s ease;
   box-shadow: 0 8px 20px rgba(180, 140, 255, 0.15);
 }
-
 .cp-pd-back:hover {
   background: linear-gradient(135deg, #ffd6ec, #d7b8ff);
   color: white;
