@@ -1,7 +1,7 @@
-// Fetches raw file content from a public GitHub repo
+
+
 export const fetchGitHubFileContent = async (githubUrl: string): Promise<string> => {
-  // Accept either a raw.githubusercontent.com URL directly,
-  // or a normal github.com/user/repo/blob/branch/path URL and convert it
+ 
   let rawUrl = githubUrl;
 
   if (githubUrl.includes("github.com") && githubUrl.includes("/blob/")) {
