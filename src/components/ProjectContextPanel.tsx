@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { updateProject, type Project } from "../api/project";
-import "./ProjectContextPanel.css";
+import "./ProjectContextpanel.css";
 
 interface ProjectContextPanelProps {
   project: Project;
