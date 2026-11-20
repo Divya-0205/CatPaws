@@ -100,13 +100,13 @@ ${code}
 
       return parsed;
     } catch (error: any) {
-      console.error(`Model ${model} failed:`, error.status, error.message);
-      lastError = error;
-      if (error.status === 404 || error.status === 429) {
-        continue;
-      }
-      throw error;
-    }
+  console.error(`Model ${model} failed:`, error.status, error.message);
+  lastError = error;
+  if ([404, 429, 500, 503, 504].includes(error.status)) {
+    continue;
+  }
+  throw error;
+}
   }
 
   throw lastError;
