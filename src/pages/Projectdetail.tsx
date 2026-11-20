@@ -4,7 +4,7 @@ import { ApiError } from "../api/client";
 import NewReview from "../pages/NewReview";
 import ProjectFiles from "../pages/Projectfiles";
 import ProjectAnalysis from "../pages/ProjectAnalysis";
-import ProjectContextPanel from "../components/ProjectcontextPanel";
+import ProjectContextPanel from "../components/ProjectContextPanel";
 import "../Styles/Projectdetail.css";
 
 interface ProjectDetailProps {
